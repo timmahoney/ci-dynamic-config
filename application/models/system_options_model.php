@@ -1,8 +1,8 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-	/**
-	 * System_options_model
-	 */
+/**
+ * System_options_model
+ */
 class System_options_model extends MY_Model
 {
 
@@ -12,9 +12,6 @@ class System_options_model extends MY_Model
 	public function __construct()
 	{
 		parent::__construct();
-
-		// set the table name
-		$this->_table = "system_options";
 	}
 
 	public function get_option($name=null, $if_none=null)
