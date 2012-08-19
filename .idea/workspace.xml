@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="679e9d8e-8f02-4689-8124-61ca2d76982e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/system_options_model.php" afterPath="$PROJECT_DIR$/application/models/system_options_model.php" />
     </list>
     <ignored path="ci-dynamic-config.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +36,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.9189189">
+            <state line="2" column="29" selection-start="50" selection-end="50" vertical-scroll-proportion="0.054054055">
               <folding />
             </state>
           </provider>
@@ -276,7 +275,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.9189189">
+        <state line="2" column="29" selection-start="50" selection-end="50" vertical-scroll-proportion="0.054054055">
           <folding />
         </state>
       </provider>

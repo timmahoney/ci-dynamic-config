@@ -1,6 +1,6 @@
 # ci-dynamic-config
 
-# CodeIgniter Dynamic Configuration
+# CodeIgniter Dynamic System Configuration
 
 ## Description
 
