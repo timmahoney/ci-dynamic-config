@@ -3,11 +3,13 @@
 /**
  * System_options_model
  */
-class System_options_model extends MY_Model
+class System_options_model extends CI_Model
 {
 
+    var $_table = "system_options";
+
 	/**
-	 * The class constructer.
+	 * The class constructor.
 	 */
 	public function __construct()
 	{
@@ -23,16 +25,21 @@ class System_options_model extends MY_Model
      * @param null $if_none
      * @return null
      */
-    public function get_option($name=null, $if_none=null)
+    public function get_option($name=null, $if_none=null, $set_if_none=false)
 	{
+        if( ! isset( $name ) ) { return null; }
 		if($name) {
-			$row = $this->get_by("option_name", $name);
+			$this->db->where("option_name", $name);
+            $result = $this->db->get($this->_table);
+            $row = $result->row();
 			if(isset($row->option_value)) {
 				return $row->option_value;
 			}
-		} else {
-			return $if_none;
 		}
+        if($set_if_none)
+        {
+            $this->update_option($name, $if_none);
+        }
         return $if_none;
 	}
 
@@ -47,8 +54,27 @@ class System_options_model extends MY_Model
      */
     public function update_option($name=null, $value=null)
 	{
-		$sql = "INSERT INTO `".$this->_table."` (option_name, option_value) VALUES (?, ?) ON DUPLICATE KEY UPDATE option_value=?, id=last_insert_id(id);";
-		$this->db->query($sql, array($name, $value, $value));
+		if( ! isset($name) && ! isset($value))
+        {
+            return null;
+        }
+
+        $this->db->select("option_value");
+        $this->db->where("option_name", $name);
+        $result = $this->db->get($this->_table);
+
+        if($result->num_rows() > 0)
+        {
+            $this->db->where("option_name", $name);
+            $data = array ( "option_value" => $value );
+            $this->db->update( $this->_table, $data );
+        }
+        else
+        {
+            $data = array ( "option_name" => $name, "option_value" => $value );
+            $this->db->insert($this->_table, $data);
+        }
+
 		return $this->db->insert_id();
 	}
 
